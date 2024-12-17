@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<TabPane xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bookManagementDEMO2.client.UIController">
+    <tabs>
+        <!-- 添加商品 Tab -->
+        <Tab text="Add Book">
+            <AnchorPane>
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <Label text="category:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="categoryField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="nameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="price:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="stock:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <TextField fx:id="stockField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="publisher:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="manufacturerField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="brand:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="brandField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                    <Button text="add" onAction="#handleAddProduct" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                    <Label fx:id="addResultLabel" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                </GridPane>
+            </AnchorPane>
+        </Tab>
+
+        <!-- 查询商品 Tab -->
+        <Tab text="Search book">
+            <AnchorPane>
+                <VBox spacing="10">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <HBox spacing="10">
+                        <Label text="query type:"/>
+                        <ComboBox fx:id="queryTypeBox"/>
+                        <Label text="query value:"/>
+                        <TextField fx:id="queryValueField"/>
+                        <Button text="query" onAction="#handleQueryProduct"/>
+                    </HBox>
+                    <TextArea fx:id="queryResultArea" prefHeight="300" wrapText="true"/>
+                </VBox>
+            </AnchorPane>
+        </Tab>
+
+        <!-- 删除商品 Tab -->
+        <Tab text="Delete book">
+            <AnchorPane>
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <Label text="category:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="deleteCategoryField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="deleteNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Button text="delete" onAction="#handleDeleteProduct" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label fx:id="deleteResultLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+            </AnchorPane>
+        </Tab>
+
+        <!-- 修改商品 Tab -->
+        <Tab text="Update book">
+            <AnchorPane>
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <Label text="book ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="updateIdField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="FieldBox:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="updateFieldBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="new value:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="updateValueField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Button text="update" onAction="#handleUpdateProduct" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label fx:id="updateResultLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                </GridPane>
+            </AnchorPane>
+        </Tab>
+
+        <!-- 销售商品 Tab -->
+        <Tab text="Books sold">
+            <AnchorPane>
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <Label text="category:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="saleCategoryField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="saleNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="quantity:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="saleQuantityField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Button text="sale" onAction="#handleSaleProduct" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label fx:id="saleResultLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                </GridPane>
+            </AnchorPane>
+        </Tab>
+
+
+
+
+        <!--<Tab text="Statistics book">
+            <AnchorPane>
+                <VBox spacing="10" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    &lt;!&ndash; 上方 HBox，用于选择统计类型 &ndash;&gt;
+                    <HBox spacing="10">
+                        <Label text="Statistics type:"/>
+                        &lt;!&ndash; ComboBox 选择框，用户可以选择统计类型：Price 或 Stock &ndash;&gt;
+                        <ComboBox fx:id="statTypeBox"/>
+                        <Button text="Statistics" onAction="#handleStatProducts"/>
+                    </HBox>
+
+                    &lt;!&ndash; 中间 TextArea，显示统计结果（文本形式） &ndash;&gt;
+                    <TextArea fx:id="statResultArea" prefHeight="150" wrapText="true"/>
+
+                    &lt;!&ndash; 下方 VBox，用于显示动态生成的图表 &ndash;&gt;
+                    <VBox fx:id="statChartContainer" spacing="10" alignment="CENTER">
+                        &lt;!&ndash; 图表会动态添加到这里 &ndash;&gt;
+                    </VBox>
+                </VBox>
+            </AnchorPane>
+        </Tab>-->
+
+        <Tab text="Statistics book">
+            <AnchorPane>
+                <VBox spacing="10" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <!-- 上方 HBox，用于选择统计类型 -->
+                    <HBox spacing="10">
+                        <Label text="Statistics type:"/>
+                        <!-- ComboBox 选择框，用户可以选择统计类型：Price 或 Stock -->
+                        <ComboBox fx:id="statTypeBox">
+                        </ComboBox>
+
+                        <Label text="Chart type:"/>
+                        <!-- 新增下拉框，用于选择图表类型：BarChart 或 PieChart-->
+                        <ComboBox fx:id="chartTypeBox">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="BarChart"/>
+                                    <String fx:value="PieChart"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <Button text="Statistics" onAction="#handleStatProducts"/>
+                    </HBox>
+
+                    <!-- 中间 TextArea，显示统计结果（文本形式） -->
+                    <TextArea fx:id="statResultArea" prefHeight="150" wrapText="true" editable="false"/>
+
+                    <!-- 下方 VBox，用于显示动态生成的图表 -->
+                    <VBox fx:id="statChartContainer" spacing="10" alignment="CENTER">
+                        <!-- 图表会动态添加到这里 -->
+                    </VBox>
+                </VBox>
+            </AnchorPane>
+        </Tab>
+
+
+
+
+    </tabs>
+</TabPane>

@@ -1,0 +1,7 @@
+com\example\supermarket\server\Database.class
+com\example\supermarket\client\Client.class
+module-info.class
+com\example\supermarket\server\ClientHandler.class
+com\example\supermarket\server\Server.class
+com\example\supermarket\MainApp.class
+com\example\supermarket\client\UIController.class
