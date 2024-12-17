@@ -1,8 +1,11 @@
 # Book-Management-System
 Overview
-This project is a shopping platform built using Spring Boot, HTML, CSS, and JavaScript, with session-based shopping cart functionality.
-It includes a front-end user shopping system and a back-end management system for administrators.
-The system is implemented using the Java Spring Boot framework, utilizes JSP for views, and employs session storage for managing shopping cart data.
+This project is a shopping platform built using JAVA and JAVAFX, database is MUSQL access via JDBC.
+It is the course project of Wenzhou-Kean university Cps3250, Professer Sangi give me guidence.
+  During the proposal stage, we initially chose C++ for development, but Professor Sangi pointed out that implementing a user interface with C++ would be challenging. We switched to Java and used JavaFX.
+Originally, our statistics interface displayed all data in a simple list. Professor Sangi suggested adding data visualization to make the information clearer and improve user experience. Following his advice, we implemented pie charts to visualize inventory data.
+To further enhance the system’s functionality, Professor Sangi encouraged us to add more chart types. In the final version, we added bar charts and pie charts.
+Throughout the process, Professor Sangi's guidance made us realize that the choice of technology is as important as the design of the user experience. Data visualization is not only a technical improvement, but also an in-depth response to user needs.
 
 Setup Instructions
 1.	Install JDK 1.8:
